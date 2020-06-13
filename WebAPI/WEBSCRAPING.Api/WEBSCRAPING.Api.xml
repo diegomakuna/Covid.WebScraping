@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WEBSCRAPING.Api</name>
+    </assembly>
+    <members>
+        <member name="M:WEBSCRAPING.Api.Controllers.CovidController.GetAll">
+            <summary>
+            Pega todas as collections disponiveis 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WEBSCRAPING.Api.Controllers.CovidController.GetLastUpdate">
+            <summary>
+            Pega a Collection mais Nova do Banco 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WEBSCRAPING.Api.Controllers.CovidController.SearchAreaByName(System.String)">
+            <summary>
+            Busca pelo nome dos paises  
+            <param name="name"></param>
+             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WEBSCRAPING.Api.Controllers.CovidController.rankingByDeaths">
+            <summary>
+            Retorna uma lista de paises  por ordem de número de mortos 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WEBSCRAPING.Api.Controllers.CovidController.Post(WEBSCRAPING.Api.Core.Models.Covid)">
+            <summary>
+            Salva os dados da covid no MongoDb
+            </summary>
+            <param name="covid"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
