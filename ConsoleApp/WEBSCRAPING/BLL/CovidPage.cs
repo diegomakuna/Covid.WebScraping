@@ -94,8 +94,9 @@ namespace WEBSCRAPING
 
                 if (_navigate == 0)
                 {
-
-                    Logger($"({i}) {area.AreaName} --------------- ".ToUpper());
+                    area.RankingOrder = (i + 1) ;
+                    Logger($"({area.RankingOrder}) {area.AreaName} --------------- ".ToUpper());
+                    
                 }
 
                 var hasChildren = listOfareas[i].FindElements(By.ClassName("hasChildren")).Count;
@@ -117,8 +118,8 @@ namespace WEBSCRAPING
                 {
                     AddFilter(listOfareas[i], By.ClassName("areaDiv"));
 
-                 area = GetFullData(area);
-                 
+                    area = GetFullData(area);
+                    area.RankingOrder = (i + 1);
 
                     RemoveFilter(By.ClassName("areaDiv"));
 
@@ -130,13 +131,14 @@ namespace WEBSCRAPING
                         c.FindElements(By.ClassName("infoTileData")).Count > 1);
 
                     area = GetFullData(area);
-                    
+                    area.RankingOrder = (i + 1);
+
                 }
 
 
 
 
-                Logger($" -- AREA : {area.AreaName} | CONFIRMADO {area.Confirmed?.ToString("N0", new CultureInfo("pt-BR"))} | " +
+                Logger($" -- ({area.RankingOrder}) AREA : {area.AreaName} | CONFIRMADO {area.Confirmed?.ToString("N0", new CultureInfo("pt-BR"))} | " +
                        $"ATIVOS : {area.Active?.ToString("N0", new CultureInfo("pt-BR"))} | " +
                        $"RECUPERADOS : {area.Recovered?.ToString("N0", new CultureInfo("pt-BR"))} | " +
                        $"MORTOS {area.Deaths?.ToString("N0", new CultureInfo("pt-BR"))}".ToUpper());

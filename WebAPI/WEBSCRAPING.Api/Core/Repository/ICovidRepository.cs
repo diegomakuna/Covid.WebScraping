@@ -11,7 +11,8 @@ namespace WEBSCRAPING.Api.Core.Repository
         Task<IEnumerable<Covid>> GetAll();
         Task<Covid> GetLastUpdate();
         Task<IEnumerable<Area>> SearchAreaByName(string name);
-        Task<IEnumerable<Area>> rankingByDeaths();
+        Task<Area> GetByRankingOrder(int number);
+        Task<IEnumerable<Area>> RankingByDeaths();
         Task Create(Covid covid);
         Task<bool> Update(Covid covid);
         Task<bool> Delete(string name);

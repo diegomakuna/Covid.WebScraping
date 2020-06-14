@@ -66,13 +66,35 @@ namespace WEBSCRAPING.Api.Controllers
 
             name = name.Trim().ToLower();
 
-            var area = await _covidRepository.SearchAreaByName(name);
+            var areas = await _covidRepository.SearchAreaByName(name);
+
+            if (areas == null)
+                return new NotFoundResult();
+
+            return new ObjectResult(areas);
+        }
+
+        /// <summary>
+        /// Pega o pais pelo numero no Ranking
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetByRankingOrder")]
+        public async Task<IActionResult> GetByRankingOrder(int number = 1)
+        {
+
+            
+
+            var area = await _covidRepository.GetByRankingOrder(number);
 
             if (area == null)
                 return new NotFoundResult();
 
             return new ObjectResult(area);
         }
+
+
 
         /// <summary>
         /// Retorna uma lista de paises  por ordem de número de mortos 
@@ -83,12 +105,12 @@ namespace WEBSCRAPING.Api.Controllers
         public async Task<IActionResult> rankingByDeaths()
         {
 
-            var covid = await _covidRepository.rankingByDeaths();
+            var area = await _covidRepository.RankingByDeaths();
 
-            if (covid == null)
+            if (area == null)
                 return new NotFoundResult();
 
-            return new ObjectResult(covid);
+            return new ObjectResult(area);
         }
 
         
