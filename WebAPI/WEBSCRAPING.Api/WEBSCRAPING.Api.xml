@@ -23,6 +23,13 @@
              </summary>
             <returns></returns>
         </member>
+        <member name="M:WEBSCRAPING.Api.Controllers.CovidController.GetByRankingOrder(System.Int32)">
+            <summary>
+            Pega o pais pelo numero no Ranking
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
         <member name="M:WEBSCRAPING.Api.Controllers.CovidController.rankingByDeaths">
             <summary>
             Retorna uma lista de paises  por ordem de número de mortos 
