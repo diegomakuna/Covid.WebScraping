@@ -8,6 +8,7 @@ namespace WEBSCRAPING.Models
     {
         public string IdAreaHtml { get; set; }
         public string AreaName { get; set; }
+        public int? RankingOrder { get; set; }
         public List<Area> Areas { get; set; } = new List<Area>();
     }
 }
