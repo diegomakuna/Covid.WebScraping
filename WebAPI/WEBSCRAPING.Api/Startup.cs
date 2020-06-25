@@ -16,6 +16,7 @@ namespace WEBSCRAPING.Api
 {
     public class Startup
     {
+        private const string DefaultCorsPolicyName = "AllowAll"; //"localhost";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -55,6 +56,17 @@ namespace WEBSCRAPING.Api
                 c.IncludeXmlComments(xmlPath);
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(DefaultCorsPolicyName, builder =>
+                {
+                   
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,6 +86,8 @@ namespace WEBSCRAPING.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(DefaultCorsPolicyName); //Enable CORS!
 
             app.UseAuthorization();
 
