@@ -112,9 +112,7 @@ export default class Layout extends React.Component<IAppProps, IAppState> {
   };
 
   _top10Filter() {
-    console.log("chamou");
-
-    if (this.state.global?.areas && this.state.global?.areas.length > 0) {
+   if (this.state.global?.areas && this.state.global?.areas.length > 0) {
       this.setState({
         topConfirmed: _.orderBy(
           this.state.global.areas,
@@ -137,8 +135,7 @@ export default class Layout extends React.Component<IAppProps, IAppState> {
           ["desc"]
         ).slice(0, 10),
       });
-
-      console.log(this.state.topDeaths);
+      
     }
   }
 
