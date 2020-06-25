@@ -42,10 +42,24 @@ body {
   margin-left: auto;
 }
 
-header .container {
+.title{
+  border-bottom:1px solid #6d6b6b ;
+  h2{
+    font-size: 40px;
+    padding: 30px 10px;
+    font-weight: 400;
+    margin: 0;
+
+  }
+}
+
+header {
+  background: #252d47;
+.container {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
+}
 }
 
 .logo {
@@ -95,4 +109,106 @@ header .container {
   position: relative;
   margin-top: -95px;
   height: 170px;
+}
+
+.ranking{
+  
+    .ranking-info{
+    padding: 60px 0 ;
+    display: flex;
+    justify-content: space-between;
+    .rk-list{
+      flex: 1;
+     h3{
+       font-weight: 400;
+       text-align: center;
+       font-size: 14px;
+       margin: 0;
+       padding: 10px 0;
+      
+     }
+  
+      padding: 10px 20px;
+    }
+    .rk-list.confirmed h3{
+      border-bottom:1px solid $color-confirmed
+     }
+     .rk-list.active h3{
+      border-bottom:1px solid $color-active
+     }
+     .rk-list.recovered h3{
+      border-bottom:1px solid $color-recovered
+     }
+     .rk-list.deaths h3{
+      border-bottom:1px solid $color-deaths
+     }
+    ol{
+      
+      padding: 0;
+      counter-reset: any-name;
+      list-style: none;
+      li{
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 10px 0;
+        counter-increment: any-name;
+        font-weight: 400;
+        font-size: 14px;
+        border-bottom:1px solid ;
+        span{
+          flex: 1;
+        }
+        span:nth-child(2){
+          text-align: right;
+        }
+        &:before{
+          content: counter(any-name);
+          margin-right: 0.8rem;
+          background: #9c27b0;
+          border-radius: 50%;
+          color: white;
+          width: 1.5rem;
+          height: 1.5rem;
+          padding-top: 0.2rem;
+          text-align: center;
+          display: inline-block;
+          box-sizing: border-box;
+        }
+        
+      }
+     
+    }
+  }
+}
+ .rk-list.confirmed ol li{
+    &:before{
+      background: $color-confirmed !important
+    }
+
+  
+ }
+ .rk-list.active ol li{
+  &:before{
+    background: $color-active !important
+  }
+}
+.rk-list.recovered ol li{
+  &:before{
+    background: $color-recovered !important
+  }
+}
+.rk-list.deaths ol li{
+  &:before{
+    background: $color-deaths !important
+  }
+}
+
+footer{
+  padding: 20px 0;
+  background: #252d47;
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
 }
